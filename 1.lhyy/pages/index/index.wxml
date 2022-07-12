@@ -1,0 +1,127 @@
+<!--pages/index/index.wxml-->
+<!-- 顶部区域 -->
+<view class="tab">
+  <view class="tab-item {{tab==0?'active':''}}" bindtap="changeItem" data-item="0">音乐</view>
+  <view class="tab-item {{tab==1?'active':''}}" bindtap="changeItem" data-item="1">助眠</view>
+  <view class="tab-item {{tab==2?'active':''}}" bindtap="changeItem" data-item="2">听书</view>
+</view>
+
+<!-- 内容区域 -->
+<view class="content">
+  <swiper class="content-wh" current="{{item}}" bindchange="changeTab">
+    <swiper-item>
+      <view class="search" bindtap="toSearch">
+        <input placeholder="点击搜索歌曲"/>
+      </view>
+      <!-- banner区域 -->
+      <view class="banner">
+        <swiper autoplay> 
+          <swiper-item wx:for="{{bannerList}}" wx:key="id">
+            <image mode="widthFix" src="{{item.imgurl}}"></image>
+          </swiper-item>
+        </swiper>
+      </view>
+      <!-- Top -->
+      <view class="Top">
+        <view class="top-1">
+          <image class="fl" src="/pages/images/index/top.png"></image>
+          <view class="t_songname" wx:for="{{topList}}" wx:key="id">
+            <text class="filename">{{index+1}}  {{item.filename}}</text>
+          </view> 
+        </view>
+        <view class="top-2"><text class="hotLi">热门歌单</text></view>
+        <view class="top-3"><text class="newSong">华语新歌</text></view>
+        <view class="clear"></view>
+      </view>
+      <!-- 推荐 -->
+      <view class="recommend">
+        <view class="re_title"><text>推荐</text><text>更多></text></view>
+          <view class="re_content">
+            <view class="re_li" wx:for="{{recommendList}}" wx:key="id">
+              <image src="{{item.imgurl}}"></image>
+              <text class="re_filename">{{item.specialname}}</text>
+              <text class="re_author">{{item.play_count_text}}</text>
+            </view>
+          </view> 
+      </view>
+      <!-- MV -->
+      <view class="mv">
+        <view class="m_title"><text>MV视频</text><text>更多></text></view>
+        <view class="mv_content">
+          <view class="m_video" wx:for="{{mvList}}" wx:key="id">
+            <image src="{{item.imgurl}}"></image>
+        </view>
+        </view>
+      </view>
+
+      <!-- 到底 -->
+      <view class="footer">
+        -- 灵魂学者出品 --
+      </view>
+        
+      <!-- 播放Menu -->
+      
+
+    </swiper-item>
+
+
+    <swiper-item>区域2</swiper-item>
+    <swiper-item>区域3</swiper-item>
+  </swiper>
+  
+  <!-- 播放列表 -->
+  <view wx:if="{{click==true}}" class="pList">
+    <view class="li_title"><text>播放列表</text></view>
+    <image class="close" bindtap="close" src="/pages/images/index/close.png"></image>
+    <view wx:if="{{musicList==''}}" class="no" >
+      <text>暂无歌曲</text>
+    </view>
+    <scroll-view wx:else scroll-y="{{false}}" class="clear" >
+      <view class="pli"  wx:for="{{musicList}}" wx:key="id" bindtap="change" data-index="{{index}}">
+        <view class="li_song">
+           <text>{{index+1}}  {{item.filename}}</text>
+           <text wx:if="{{index==playIndex}}" class="playing">正在播放...</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 专辑显示 -->
+  <view wx:if="{{exit==true}}" bindtap="close" class="content-play">
+  <!-- 显示音乐信息 -->
+  <view class="content-play-info">
+    <text>{{play.title}}</text>
+    <view>—{{play.singer}}—</view>
+  </view>
+  <!-- 显示专辑封面 -->
+  <view class="content-play-cover">
+    <image src="{{play.coverImgUrl}}" style="animation-play-state:{{state}}" />
+  </view>
+  <!-- 显示播放进度和时间 -->
+  <view class="content-play-progress">
+    <text>{{play.currentTime}}</text>
+    <view>
+      <slider bindchange="sliderChange" activeColor="#d33a31" block-size="12" backgroundColor="#dadada" value="{{play.percent}}" />
+    </view>
+    <text>{{play.duration}}</text>
+  </view>
+  </view>
+
+
+  <!-- 底部菜单 -->
+  <view class="play-menu">
+    <image wx:if="{{play.coverImgUrl!=''}}" class="pic {{state=='running'?'rotate':''}}" bindtap="exit" src="{{play.coverImgUrl}}"></image>
+    <image wx:else class="pic {{state=='running'?'rotate':''}}" bindtap="exit" src="http://imge.kugou.com/stdmusic/{size}/20220104/20220104141256795835.jpg"></image>
+    <view class="songname">{{play.title}}</view>
+    <view class="singer">{{play.singer}}</view>
+    <image class="play-list" bindtap="pList" src="/pages/images/index/list.png"></image>
+    <image wx:if="{{state=='paused'}}" class="play-play" bindtap="pPlay" src="/pages/images/index/play.png"></image>
+    <image wx:else class="play-play" bindtap="pPause" src="/pages/images/index/paused.png"></image>
+    <image class="play-next" bindtap="pNext" src="/pages/images/index/next.png"></image>
+  </view>
+  <!-- <play play="{{this.data.play}}"></play> -->
+
+
+
+</view>
+

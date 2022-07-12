@@ -1,0 +1,30 @@
+<!--pages/search/search.wxml-->
+<!-- 搜索框 -->
+<view class="search" bindtap="toSearch">
+  <input class="fl" type="text" placeholder="@点击搜索歌曲" bindinput="getWord" />
+  <view class="fl button" bindtap="search">搜索</view>
+</view>
+
+<view wx:if="{{click!=true}}">
+  <view wx:if="{{historyList!=''}}" class="history">
+    <view class="h_title">搜索历史 <text class="h_clear" bindtap="clearHistory">清除历史</text></view>
+    <view class="h_search fl" wx:for="{{historyList}}" wx:key="index">
+      <view></view>
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <view class="new clear">
+    <view class="new_title"><text>新歌</text></view>
+    <view class="new_content">
+      <view class="new_li">
+        <view class="new_name" wx:for="{{newList}}" wx:key="id">
+          <text class="tip">T{{index+1}}</text>
+          <text class="ma_l"> {{item.filename}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<include wx:else src="/pages/search/searchList"></include>

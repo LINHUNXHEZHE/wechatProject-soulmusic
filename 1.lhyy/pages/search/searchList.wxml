@@ -1,0 +1,15 @@
+<!-- 搜索结果 -->
+<view class="content clear">
+  <view class="title"><text>已搜单曲</text></view>
+  <view class="ul">
+    <view class="li" bindtap="listen" data-index="{{index}}" wx:for="{{searchList}}" wx:key="this">
+      <view class="songname"><text>{{item.songname}}</text></view>
+      <image class="collect" src="/pages/images/search/collect.png"></image>
+      <image class="mv" src="/pages/images/search/mv.png"></image>
+      <image class="more" src="/pages/images/search/more.png"></image>
+      <view class="filename"><text>{{item.filename}}</text></view>
+    </view>
+  </view>
+  <view class="foot">-- 到底了 --</view>
+  <play></play>
+</view>

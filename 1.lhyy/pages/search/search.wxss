@@ -1,0 +1,170 @@
+/* pages/search/search.wxss */
+/* 搜索框 */
+.search{
+  width: 100%;
+  height: 60rpx;
+  margin:20rpx 0rpx 0rpx 30rpx;
+}
+.search input{
+  width: 70%;
+  height: 60rpx;
+  border:6rpx solid #74eefd;
+  border-radius: 40rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+.fl{
+  float: left;
+}
+.clear{
+  clear: both;
+}
+.button{
+  width: 20%;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  background-color: #74eefd;
+  color: #ffffff;
+  border-radius: 60rpx;
+  margin-left: 8rpx;
+}
+
+/* 搜索历史 */
+.h{
+  width: 100%;
+}
+.h_title{
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.h_search{
+  /* width: 100rpx; */
+  height: 60rpx;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+}
+.h_search text{
+  width: 100rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  background-color: #f3f3f3;
+  color: #cccccc;
+  padding: 5rpx 30rpx;
+  border-radius: 40rpx;
+  overflow: hidden;
+  
+}
+.h_clear{
+  margin-left: 61%;
+  color:#cccccc;
+  font-weight: 100;
+  font-weight: bold;
+}
+
+/* 热搜 */
+.new_title{
+  width: 100rpx;
+  text-align: center;
+  margin: 30rpx 0rpx 0rpx 30rpx;
+  padding-bottom: 10rpx;
+  font-weight: bold;
+  color: rgb(104, 104, 104);
+  border-bottom:8rpx solid #74eefd;
+}
+.new_content{
+  width: 92.5%;
+  background-color: #f3f3f3;
+  padding: 20rpx 0rpx;
+  margin:20rpx 0rpx 0rpx 30rpx;
+  border-radius: 30rpx;
+}
+.new_name{
+  width: 90%;
+  height: 48rpx;
+  line-height: 48rpx;
+  margin:10rpx 0rpx 20rpx 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.new_name text:nth-child(1){
+  color: #74eefd;
+  margin-right:20rpx;
+  font-weight: bold;
+}
+
+/* pages/search/searchList.wxss */
+/* 搜索结果 */
+.content{
+  width: 100%;
+  margin-top: 30rpx;
+}
+.title{
+  width: 100%;
+  height: 80rpx;
+  background-color: #74eefd;
+}
+.title text{
+  margin-left: 30rpx;
+  line-height: 80rpx;
+  font-weight: bold;
+}
+.li{
+  position: relative;
+  width: 100%;
+  height: 140rpx;
+  background-color: white;
+  border-top: 1rpx solid #74eefd;
+}
+.li .songname{
+  width: 60%;
+  font-size: 36rpx;
+  margin-left: 40rpx;
+  padding-top: 25rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.li .filename{
+  width: 60%;
+  font-size: 32rpx;
+  margin-left: 40rpx;
+  color: #cccccc;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.collect{
+  position: absolute;
+  width: 50rpx;
+  height: 50rpx;
+  right:180rpx;
+  top: 45rpx;
+}
+.mv{
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  right:90rpx;
+  top: 40rpx;
+}
+.more{
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  right:20rpx;
+  top: 40rpx;
+}
+/* 底部提示 */
+.foot{
+  width: 100%;
+  height: 150rpx;
+  padding-top: 30rpx;
+  font-size: 32rpx;
+  color: #cccccc;
+  text-align: center;
+  border-top: 1px solid #74eefd;
+}
